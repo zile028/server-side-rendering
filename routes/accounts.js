@@ -7,6 +7,7 @@ router.get("/", require("../controllers/renderAccountsPage"));
 router.get("/add", require("../controllers/renderAccountAddPage"));
 router.get("/edit", require("../controllers/renderAccountEditPage"));
 router.get("/delete", require("../controllers/renderAccountDeletePage"));
+router.get("/search", require("../controllers/renderSearchResults"))
 router.get("/delete/:id", require("../controllers/deleteAccount"));
 router.get("/edit/:id", require("../controllers/renderEditFormPage"));
 

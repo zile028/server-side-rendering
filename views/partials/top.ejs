@@ -29,9 +29,18 @@
                     </li>
                 </ul>
             </div>
-            <div>
-                <input class="form-control" type="text" placeholder="Search" name="searchTerm">
-            </div>
+
+            <!-- // localhost:3000/accounts/search?term=dejan
+            // localhost:3000/:category
+            // localhost:3000/dejansaccount -->
+
+            <% let term="" %>
+
+            <form action="/accounts/search?term=<%= term %>" method="">
+                <input class="form-control" type="text" placeholder="Search" name="term" value="<%= term %>">
+                <button type="submit">Search</button>
+            </form>
+
         </div>
     </nav>
     <section class="container">
