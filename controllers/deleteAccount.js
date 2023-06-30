@@ -1,16 +1,14 @@
-let accounts = require("../data.json");
+const AccountModel = require("../models/accountModel");
 
 const deleteAccount = (req, res) => {
   let { id } = req.params;
-  let foundedAccount = null;
-
-  accounts.find((acc, index) => {
-    foundedAccount = index;
-    return acc.id === id;
-  });
-  accounts.splice(foundedAccount, 1);
-
-  res.redirect("/accounts/delete");
+  AccountModel.deleteOne({ _id: id })
+    .then((result) => {
+      res.redirect("/accounts/delete");
+    })
+    .catch((error) => {
+      res.redirect("/error");
+    });
 };
 
 module.exports = deleteAccount;

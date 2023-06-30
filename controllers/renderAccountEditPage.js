@@ -1,7 +1,5 @@
-const accounts = require("../data.json");
-
 const renderAccountEditPage = (req, res) => {
-  res.render("editAccountsPage", { accounts });
+  res.render("editAccountsPage", { accounts: req.locals });
 };
 
 module.exports = renderAccountEditPage;

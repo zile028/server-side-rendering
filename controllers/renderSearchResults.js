@@ -1,13 +1,18 @@
-const accounts = require("../data.json")
+const AccountModel = require("../models/accountModel");
+const accounts = require("../data.json");
 
 const renderSearchResults = (req, res) => {
-    let { term } = req.query
+  let { term } = req.query;
 
-    let filteredAccounts = []
+  AccountModel.find({
+    $or: [{ fullName: term }, { card: term }],
+  })
+    .then((filteredAccounts) => {
+      res.render("searchResultsPage", { filteredAccounts, term });
+    })
+    .catch((error) => {
+      res.redirect("/error");
+    });
+};
 
-    filteredAccounts = accounts.filter(account => account.fullName.toLowerCase().includes(term.toLowerCase()))
-
-    res.render("searchResultsPage", {filteredAccounts, term})
-}
-
-module.exports = renderSearchResults
+module.exports = renderSearchResults;

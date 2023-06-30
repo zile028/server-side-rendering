@@ -1,13 +1,14 @@
-const accounts = require("../data.json");
+const AccountModel = require("../models/accountModel");
 
 const renderEditFromPage = (req, res) => {
   let { id } = req.params;
-
-  let account = accounts.find((acc) => {
-    return acc.id === id;
-  });
-
-  res.render("editFormPage", { account });
+  AccountModel.findOne({ _id: id })
+    .then((account) => {
+      res.render("editFormPage", { account });
+    })
+    .catch((error) => {
+      res.redirect("/error");
+    });
 };
 
 module.exports = renderEditFromPage;

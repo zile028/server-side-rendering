@@ -1,16 +1,15 @@
-const accounts = require("../data.json");
+const AccountModel = require("../models/accountModel");
 
 const updateAccount = (req, res) => {
   let { id, ...account } = req.body;
-  let foundedAccount = null;
 
-  accounts.find((acc, index) => {
-    foundedAccount = index;
-    return acc.id === id;
-  });
-  accounts[foundedAccount] = req.body;
-
-  res.redirect("/accounts/edit");
+  AccountModel.findOneAndUpdate({ _id: id }, { $set: account }, { new: true })
+    .then((result) => {
+      res.redirect("/accounts/edit");
+    })
+    .catch((error) => {
+      res.redirect("/error");
+    });
 };
 
 module.exports = updateAccount;
