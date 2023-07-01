@@ -1,13 +1,13 @@
-<%- include("partials/top.ejs") %>
-    <div class="addAccountView view">
-        <div class="row">
-            <form class="col-8 offset-2" action="/accounts/add" method="post">
-                <h1 class="text-center py-5">Add account</h1>
-                <input class="form-control mb-3" type="text" placeholder="Full name" name="fullName">
-                <input class="form-control mb-3" type="text" placeholder="Deposit" name="deposit">
-                <input class="form-control mb-3" type="text" placeholder="Card" name="card">
-                <button id="saveAccount" class="btn btn-primary form-control">Add account</button>
-            </form>
-        </div>
+<%- include("partials/top.ejs",{user}) %>
+<div class="addAccountView view">
+    <div class="row">
+        <form class="col-8 offset-2" action="/accounts/add" method="post">
+            <h1 class="text-center py-5">Add account</h1>
+            <input class="form-control mb-3" type="text" placeholder="Full name" name="fullName">
+            <input class="form-control mb-3" type="text" placeholder="Deposit" name="deposit">
+            <input class="form-control mb-3" type="text" placeholder="Card" name="card">
+            <button id="saveAccount" class="btn btn-primary form-control">Add account</button>
+        </form>
     </div>
-    <%- include("partials/bottom.ejs") %>
+</div>
+<%- include("partials/bottom.ejs") %>

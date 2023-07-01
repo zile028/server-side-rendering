@@ -1,16 +1,16 @@
-<%- include("partials/top.ejs") %>
-    <div class="editAccountView view">
-        <div class="row">
-            <form class="col-8 offset-2" action="/accounts/update" method="post">
-                <h1 class="text-center py-5">Edit account</h1>
-                <input class="form-control mb-3" type="hidden" placeholder="ID" name="id" value="<%= account.id %>">
-                <input class="form-control mb-3" type="text" placeholder="Full name" name="fullName"
-                    value="<%= account.fullName %>">
-                <input class="form-control mb-3" type="text" placeholder="Deposit" name="deposit"
-                    value="<%= account.deposit %>">
-                <input class="form-control mb-3" type="text" placeholder="Card" name="card" value="<%= account.card %>">
-                <button id="updateAccount" class="btn btn-primary form-control">Update account</button>
-                </fo>
-        </div>
+<%- include("partials/top.ejs",{user}) %>
+<div class="editAccountView view">
+    <div class="row">
+        <form class="col-8 offset-2" action="/accounts/update" method="post">
+            <h1 class="text-center py-5">Edit account</h1>
+            <input class="form-control mb-3" type="hidden" placeholder="ID" name="id" value="<%= account.id %>">
+            <input class="form-control mb-3" type="text" placeholder="Full name" name="fullName"
+                   value="<%= account.fullName %>">
+            <input class="form-control mb-3" type="text" placeholder="Deposit" name="deposit"
+                   value="<%= account.deposit %>">
+            <input class="form-control mb-3" type="text" placeholder="Card" name="card" value="<%= account.card %>">
+            <button id="updateAccount" class="btn btn-primary form-control">Update account</button>
+            </fo>
     </div>
-    <%- include("partials/bottom.ejs") %>
+</div>
+<%- include("partials/bottom.ejs") %>

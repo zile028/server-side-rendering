@@ -10,37 +10,40 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="/">Bank-App</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a href="/accounts" id="accounts" class="btn btn-primary me-2">Accounts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/accounts/add" id="addAccount" class="btn btn-warning me-2">Add Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/accounts/edit" id="editDeleteAccount" class="btn btn-info me-2">Edit Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="/accounts/delete" id="editDeleteAccount" class="btn btn-danger me-2">Delete Account</a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- // localhost:3000/accounts/search?term=dejan
-            // localhost:3000/:category
-            // localhost:3000/dejansaccount -->
-
-            <% let term="" %>
-
-            <form action="/accounts/search?term=<%= term %>" method="">
-                <input class="form-control" type="text" placeholder="Search" name="term" value="<%= term %>">
-                <button type="submit">Search</button>
-            </form>
-
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">Bank-App</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a href="/accounts" id="accounts" class="btn btn-primary me-2">Accounts</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/accounts/add" id="addAccount" class="btn btn-warning me-2">Add Account</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/accounts/edit" id="editDeleteAccount" class="btn btn-info me-2">Edit Account</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/accounts/delete" id="editDeleteAccount" class="btn btn-danger me-2">Delete Account</a>
+                </li>
+            </ul>
         </div>
-    </nav>
-    <section class="container">
+
+        <!-- // localhost:3000/accounts/search?term=dejan
+        // localhost:3000/:category
+        // localhost:3000/dejansaccount -->
+
+        <% let term = "" %>
+
+        <form class="d-flex" action="/accounts/search?term=<%= term %>">
+            <input class="form-control" type="text" placeholder="Search" name="term" value="<%= term %>">
+            <button type="submit">Search</button>
+        </form>
+        <a class="btn btn-info ms-1" href="/auth/logout">Logout</a>
+        <% if (user?.fullName){ %>
+            <button class="btn btn-success ms-1"><%= user.fullName %></button>
+        <% } %>
+    </div>
+</nav>
+<section class="container">
